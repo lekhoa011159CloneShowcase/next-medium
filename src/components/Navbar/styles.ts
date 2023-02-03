@@ -3,9 +3,25 @@ import theme from "utils/theme";
 
 const sx = {
   appBar: {
-    py: 3,
+    bgcolor: theme.palette.yellow.main,
+    borderBottom: "1px solid #000",
+    transition: `${theme.transitions.create(["background-color"], {
+      duration: theme.transitions.duration.standard,
+    })}`,
+  } satisfies SxProps,
+
+  scrolledAppBar: {
+    bgcolor: "#fff",
+  } satisfies SxProps,
+
+  scrolledButton: {
+    bgcolor: theme.palette.green.main,
+    color: "#fff",
+  } satisfies SxProps,
+
+  container: {
+    py: 2,
     display: "flex",
-    flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
   } satisfies SxProps,

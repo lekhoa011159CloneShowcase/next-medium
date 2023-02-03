@@ -1,6 +1,15 @@
-import { Box, Button, Container, Link } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Link,
+  AppBar,
+  Toolbar,
+  useScrollTrigger,
+} from "@mui/material";
 import Logo from "components/Logo";
 import { ReactElement } from "react";
+import sxCommon from "styles";
 
 import sx from "./styles";
 
@@ -12,31 +21,47 @@ const menu = [
 ];
 
 function Navbar(): ReactElement {
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 320,
+  });
+
   return (
-    <Container maxWidth="lg" disableGutters>
-      <Box sx={sx.appBar}>
-        <Link href="/">
-          <Logo />
-        </Link>
+    <AppBar
+      position="fixed"
+      sx={{ ...sx.appBar, ...(trigger ? sx.scrolledAppBar : {}) }}
+    >
+      <Toolbar>
+        <Container maxWidth="lg" disableGutters sx={sx.container}>
+          <Link href="/">
+            <Logo />
+          </Link>
 
-        <Box>
-          {menu.map((item) => (
-            <Link
-              sx={sx.linkItem}
-              underline="none"
-              key={item.link}
-              href={item.link}
+          <Box>
+            {menu.map((item) => (
+              <Link
+                sx={sx.linkItem}
+                underline="none"
+                key={item.link}
+                href={item.link}
+              >
+                {item.text}
+              </Link>
+            ))}
+
+            <Button
+              sx={{
+                ...sxCommon.button,
+                ...(trigger ? sx.scrolledButton : {}),
+              }}
+              variant="contained"
             >
-              {item.text}
-            </Link>
-          ))}
-
-          <Button color="black" variant="contained">
-            Get started
-          </Button>
-        </Box>
-      </Box>
-    </Container>
+              Get started
+            </Button>
+          </Box>
+        </Container>
+      </Toolbar>
+    </AppBar>
   );
 }
 

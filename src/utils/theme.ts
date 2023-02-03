@@ -16,17 +16,7 @@ const createColor = (color: string) => augmentColor({ color: { main: color } });
 const theme = createTheme({
   palette: {
     green: createColor("rgb(26, 137, 23)"),
-    black: createColor("#000"),
     yellow: createColor("#FFC017"),
-  },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 900,
-      lg: 1148,
-      xl: 1536,
-    },
   },
   typography: {
     fontFamily: roboto.style.fontFamily,

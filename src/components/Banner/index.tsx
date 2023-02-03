@@ -1,26 +1,33 @@
-import { Box, Typography } from "@mui/material";
-import { default as Grid } from "@mui/material/Unstable_Grid2/Grid2";
-import { Container } from "@mui/system";
-import AnimateBanner from "components/AnimateBanner";
 import { ReactElement } from "react";
+import { Typography, Box, Button } from "@mui/material";
+import { Container } from "@mui/system";
+
+import Animated from "./Animated";
 
 import sx from "./styles";
+import sxCommon from "styles";
 
 function Banner(): ReactElement {
   return (
-    <Container maxWidth={false} disableGutters sx={sx.banner}>
-      <Grid container>
-        <Container maxWidth="lg" disableGutters>
-          <Grid xs={6} sx={sx.bannerTitle}>
-            <Typography variant="h1" color="#000">
-              Stay currious.
-            </Typography>
-          </Grid>
-          <Grid xs={6}>
-            <AnimateBanner />
-          </Grid>
-        </Container>
-      </Grid>
+    <Container maxWidth={false} disableGutters sx={sx.container}>
+      <Container maxWidth="lg" disableGutters sx={sx.description}>
+        <Typography variant="h1" color="#000">
+          Stay currious.
+        </Typography>
+        <Box sx={sx.subtitle}>
+          <Typography color="#000">
+            Discover stories, thinking, and expertise
+          </Typography>
+          <Typography color="#000">from writers on any topic.</Typography>
+        </Box>
+        <Button size="large" sx={{ ...sxCommon.button, ...sx.button }}>
+          Start reading
+        </Button>
+      </Container>
+
+      <Box sx={sx.animation}>
+        <Animated />
+      </Box>
     </Container>
   );
 }
