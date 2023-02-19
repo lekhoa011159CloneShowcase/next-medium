@@ -32,7 +32,7 @@ function Navbar(): ReactElement {
       sx={{ ...sx.appBar, ...(trigger ? sx.scrolledAppBar : {}) }}
     >
       <Toolbar>
-        <Container maxWidth="lg" disableGutters sx={sx.container}>
+        <Container maxWidth="lg" sx={sx.container}>
           <Link href="/">
             <Logo />
           </Link>

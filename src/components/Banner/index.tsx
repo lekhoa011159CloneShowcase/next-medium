@@ -9,8 +9,8 @@ import sxCommon from "styles";
 
 function Banner(): ReactElement {
   return (
-    <Container maxWidth={false} disableGutters sx={sx.container}>
-      <Container maxWidth="lg" disableGutters sx={sx.description}>
+    <Container maxWidth={false} sx={sx.container}>
+      <Container maxWidth="lg" sx={sx.description}>
         <Typography variant="h1" color="#000">
           Stay currious.
         </Typography>
